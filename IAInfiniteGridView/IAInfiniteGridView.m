@@ -199,19 +199,19 @@
     
     lastGrid = [self.visibleGrids lastObject];
     while (lastGrid.frame.origin.x > maximumVisibleX) {
-        [lastGrid removeFromSuperview];
         [self.visibleGrids removeLastObject];
         [self.gridReusableQueue addObject:lastGrid];
         
+        [lastGrid removeFromSuperview];
         lastGrid = [self.visibleGrids lastObject];
     }
     
     firstGrid = [self.visibleGrids objectAtIndex:0];
     while (CGRectGetMaxX(firstGrid.frame) < minimumVisibleX) {
-        [firstGrid removeFromSuperview];
         [self.visibleGrids removeObjectAtIndex:0];
         [self.gridReusableQueue addObject:firstGrid];
         
+        [firstGrid removeFromSuperview];
         firstGrid = [self.visibleGrids objectAtIndex:0];
     }
 }
